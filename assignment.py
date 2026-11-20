@@ -5,40 +5,67 @@
 LinkedList = []
 FirstNode = -1
 FirstEmpty = 0
-# Write code here to fill LinkedList with 8 nodes (see README)
 
+
+# Exercise 1
 
 def IsEmpty():
-    # Write your code here
-    pass
-
-
+    if FirstNode==-1:
+        return False
+    else:
+        return True
 def IsFull():
-    # Write your code here
-    pass
-
+    if FirstEmpty==-1:
+        return True
+    else:
+        return False
 
 # Exercise 2
 def Traverse():
-    # Write your code here
-    pass
+    Output=[]
+    CurrentPionter = FirstNode
+    for i in range (8):
+        if CurrentPionter!=-1:
+            Output.append(LinkedList[CurrentPionter][0])
+            CurrentPionter = LinkedList[CurrentPionter][1]
+        else:
+            break
+    return Output
 
 
 # Exercise 3
 def Search(Item):
-    # Write your code here
-    pass
-
+    CurrentPionter = FirstNode
+    while CurrentPionter != -1:
+        if LinkedList[CurrentPionter][0]==Item:
+            return CurrentPionter
+        else:
+            CurrentPionter = LinkedList[CurrentPionter][1]
+    return -1
 
 def CountNodes():
-    # Write your code here
-    pass
-
+    count=0
+    CurrentPionter = FirstNode
+    for i in range (8):
+        if CurrentPionter!=-1:
+            count+=1
+            CurrentPionter = LinkedList[CurrentPionter][1]
+        else:
+           break
+    return count
 
 # Exercise 4
 def InsertFront(Item):
-    # Write your code here
-    pass
+    global LinkedList, FirstNode, FirstEmpty
+    if FirstEmpty == -1:
+        return False
+    else:
+        NewNode = FirstEmpty
+        FirstEmpty = LinkedList[NewNode][1]
+        LinkedList[NewNode][0] = Item
+        LinkedList[NewNode][1] = FirstNode
+        FirstNode = NewNode
+        return True
 
 
 # Exercise 5
