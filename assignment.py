@@ -1,13 +1,12 @@
 # You can remove 'pass' if you written code in the function
 # Each node is a list: [Data, Pointer]. A pointer of -1 means "points to nothing".
+from tkinter.constants import CURRENT
 
 # Exercise 1
-LinkedList = []
-FirstNode = -1
-FirstEmpty = 0
 
-
-# Exercise 1
+LinkedList=[[30, 4], [-1, 3], [10, 5], [-1, 6], [40, -1], [20, 0], [99, 7], [-1, -1]]
+FirstNode = 2
+FirstEmpty = 1
 
 def IsEmpty():
     if FirstNode==-1:
@@ -33,6 +32,9 @@ def Traverse():
     return Output
 
 
+
+
+
 # Exercise 3
 def Search(Item):
     CurrentPionter = FirstNode
@@ -42,6 +44,9 @@ def Search(Item):
         else:
             CurrentPionter = LinkedList[CurrentPionter][1]
     return -1
+
+
+
 
 def CountNodes():
     count=0
@@ -67,11 +72,22 @@ def InsertFront(Item):
         FirstNode = NewNode
         return True
 
-
 # Exercise 5
 def InsertEnd(Item):
-    # Write your code here
-    pass
+    global LinkedList, FirstNode, FirstEmpty
+    if FirstEmpty == -1:
+        return False
+    else:
+        NewNode=FirstEmpty
+        FirstEmpty = LinkedList[NewNode][1]
+        //previous first emptys next node meaningt the next emotry
+
+        LinkedList[NewNode][0]=Item
+        LinkedList[NewNode][1]=-1
+
+    if FirstNode==-1:
+        NewNode=FirstNode
+    else:
 
 
 # Exercise 6
