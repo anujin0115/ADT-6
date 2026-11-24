@@ -3,7 +3,9 @@
 from tkinter.constants import CURRENT
 
 # Exercise 1
-
+LinkedList = []
+FirstNode = -1
+FirstEmpty = 0
 
 
 def IsEmpty():
