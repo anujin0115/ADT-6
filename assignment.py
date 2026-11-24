@@ -4,9 +4,7 @@ from tkinter.constants import CURRENT
 
 # Exercise 1
 
-LinkedList=[[30, 4], [-1, 3], [10, 5], [-1, 6], [40, -1], [20, 0], [99, 7], [-1, -1]]
-FirstNode = 2
-FirstEmpty = 1
+
 
 def IsEmpty():
     if FirstNode==-1:
@@ -93,5 +91,19 @@ global LinkedList, FirstNode, FirstEmpty
 
 # Exercise 6
 def Delete(Item):
-    # Write your code here
-    pass
+    global LinkedList, FirstNode, FirstEmpty
+    PreviousPointer = -1
+    CurrentPointer = FirstNode
+    while CurrentPointer != -1 and LinkedList[CurrentPointer][0] != Item:
+        PreviousPointer = CurrentPointer
+        CurrentPointer = LinkedList[CurrentPointer][1]
+    if CurrentPointer == -1:
+        return False
+    if PreviousPointer == -1:
+        FirstNode = LinkedList[CurrentPointer][1]
+    else:
+        LinkedList[PreviousPointer][1] = LinkedList[CurrentPointer][1]
+    LinkedList[CurrentPointer][0] = -1
+    LinkedList[CurrentPointer][1] = FirstEmpty
+    FirstEmpty = CurrentPointer
+    return True
