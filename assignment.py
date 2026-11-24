@@ -1,6 +1,5 @@
 # You can remove 'pass' if you written code in the function
-# Each node is a list: [Data, Pointer]. A pointer of -1 means "points to nothing".
-from tkinter.constants import CURRENT
+# Each node is a list: [Data, Pointer]. A pointer of -1 means "points to nothing"
 
 # Exercise 1
 LinkedList = []
