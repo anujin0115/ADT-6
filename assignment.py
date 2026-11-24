@@ -7,56 +7,54 @@ FirstNode = -1
 FirstEmpty = 0
 
 
+
+
+# Exercise 1
+
+
 def IsEmpty():
-    if FirstNode==-1:
-        return False
-    else:
+    if FirstNode == -1:
         return True
+    else:
+        return False
+
+
 def IsFull():
-    if FirstEmpty==-1:
+    if FirstEmpty == -1:
         return True
     else:
         return False
+
 
 # Exercise 2
 def Traverse():
-    Output=[]
-    CurrentPionter = FirstNode
-    for i in range (8):
-        if CurrentPionter!=-1:
-            Output.append(LinkedList[CurrentPionter][0])
-            CurrentPionter = LinkedList[CurrentPionter][1]
-        else:
-            break
+    Output = []
+    CurrentPointer = FirstNode
+    while CurrentPointer != -1:
+        Output.append(LinkedList[CurrentPointer][0])
+        CurrentPointer = LinkedList[CurrentPointer][1]
     return Output
-
-
-
 
 
 # Exercise 3
 def Search(Item):
-    CurrentPionter = FirstNode
-    while CurrentPionter != -1:
-        if LinkedList[CurrentPionter][0]==Item:
-            return CurrentPionter
+    CurrentPointer = FirstNode
+    while CurrentPointer != -1:
+        if LinkedList[CurrentPointer][0] == Item:
+            return CurrentPointer
         else:
-            CurrentPionter = LinkedList[CurrentPionter][1]
+            CurrentPointer = LinkedList[CurrentPointer][1]
     return -1
 
 
-
-
 def CountNodes():
-    count=0
-    CurrentPionter = FirstNode
-    for i in range (8):
-        if CurrentPionter!=-1:
-            count+=1
-            CurrentPionter = LinkedList[CurrentPionter][1]
-        else:
-           break
+    count = 0
+    CurrentPointer = FirstNode
+    while CurrentPointer != -1:
+        count += 1
+        CurrentPointer = LinkedList[CurrentPointer][1]
     return count
+
 
 # Exercise 4
 def InsertFront(Item):
@@ -71,9 +69,10 @@ def InsertFront(Item):
         FirstNode = NewNode
         return True
 
+
 # Exercise 5
 def InsertEnd(Item):
-global LinkedList, FirstNode, FirstEmpty
+    global LinkedList, FirstNode, FirstEmpty
     if FirstEmpty == -1:
         return False
     NewNode = FirstEmpty
@@ -104,7 +103,7 @@ def Delete(Item):
         FirstNode = LinkedList[CurrentPointer][1]
     else:
         LinkedList[PreviousPointer][1] = LinkedList[CurrentPointer][1]
-    LinkedList[CurrentPointer][0] = -1
+    LinkedList[CurrentPointer][0] = ""  # Reset data slot to empty
     LinkedList[CurrentPointer][1] = FirstEmpty
     FirstEmpty = CurrentPointer
     return True
