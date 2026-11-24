@@ -74,20 +74,21 @@ def InsertFront(Item):
 
 # Exercise 5
 def InsertEnd(Item):
-    global LinkedList, FirstNode, FirstEmpty
+global LinkedList, FirstNode, FirstEmpty
     if FirstEmpty == -1:
         return False
+    NewNode = FirstEmpty
+    FirstEmpty = LinkedList[NewNode][1]
+    LinkedList[NewNode][0] = Item
+    LinkedList[NewNode][1] = -1
+    if FirstNode == -1:
+        FirstNode = NewNode
     else:
-        NewNode=FirstEmpty
-        FirstEmpty = LinkedList[NewNode][1]
-        //previous first emptys next node meaningt the next emotry
-
-        LinkedList[NewNode][0]=Item
-        LinkedList[NewNode][1]=-1
-
-    if FirstNode==-1:
-        NewNode=FirstNode
-    else:
+        CurrentPointer = FirstNode
+        while LinkedList[CurrentPointer][1] != -1:
+            CurrentPointer = LinkedList[CurrentPointer][1]
+        LinkedList[CurrentPointer][1] = NewNode
+    return True
 
 
 # Exercise 6
