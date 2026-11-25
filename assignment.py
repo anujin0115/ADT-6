@@ -100,7 +100,7 @@ def Delete(Item):
         FirstNode = LinkedList[CurrentPointer][1]
     else:
         LinkedList[PreviousPointer][1] = LinkedList[CurrentPointer][1]
-    LinkedList[CurrentPointer][0] = ""
+    LinkedList[CurrentPointer][0] = -1
     LinkedList[CurrentPointer][1] = FirstEmpty
     FirstEmpty = CurrentPointer
     return True
