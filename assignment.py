@@ -2,7 +2,12 @@
 # Each node is a list: [Data, Pointer]. A pointer of -1 means "points to nothing"
 
 # Exercise 1
+
+
 LinkedList = []
+for i in range(10):
+    LinkedList.append([-1, i + 1])
+LinkedList[9][1] = -1
 FirstNode = -1
 FirstEmpty = 0
 
