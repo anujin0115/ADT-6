@@ -5,9 +5,9 @@
 
 
 LinkedList = []
-for i in range(10):
+for i in range(8):
     LinkedList.append([-1, i + 1])
-LinkedList[9][1] = -1
+LinkedList[7][1] = -1
 FirstNode = -1
 FirstEmpty = 0
 
